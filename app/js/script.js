@@ -42,7 +42,7 @@ keys.addEventListener('click', (e) => {
   }
 
   if (type === 'dot') {
-    screen.textContent = screenValue* + keyValue
+    screen.textContent = screenValue + keyValue
   }
 
   if (type === 'operator') {
