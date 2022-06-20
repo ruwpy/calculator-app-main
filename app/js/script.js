@@ -42,7 +42,7 @@ keys.addEventListener('click', (e) => {
   }
 
   if (type === 'dot') {
-    screen.textContent = '0' + keyValue
+    screen.textContent = screenValue* + keyValue
   }
 
   if (type === 'operator') {
@@ -58,13 +58,15 @@ keys.addEventListener('click', (e) => {
     screen.textContent = '0'
   }
 
-  if (previousKeyType === 'equal') {
+  if (previousKeyType === 'equal' && type === 'delete') {
+    screen.textContent = '0'
+  }
+
+  if (previousKeyType === 'equal' && type !== 'delete' && type !== 'operator') {
     screen.textContent = keyValue
   }
 
-  
   if (type === 'equal') {
-    if (calculator.dataset.firstValue % 1 === 0) {}
     const firstValue = parseFloat(calculator.dataset.firstValue)
     const secondValue = parseFloat(screenValue)
 
