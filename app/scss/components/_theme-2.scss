@@ -1,0 +1,66 @@
+.theme2 {
+
+  .main {
+    background: var(--light-gray-main-background);
+  }
+
+  .calc {
+    color: var(--very-dark-grayish-yellow);
+
+    &__screen {
+      background: var(--very-light-gray-screen-background);
+    }
+
+    &__keys {
+      background: var(--grayish-red-toggle-background);
+    }
+  }
+
+  .switcher {
+
+    &__container {
+      background: var(--grayish-red-toggle-background);
+    }
+
+    &__round {
+      background: var(--orange-key-background);
+      transform: translateX(25px);
+    }
+  }
+
+  .button {
+
+    &--primary {
+      color: var(--very-dark-grayish-yellow);
+      background: var(--light-grayish-yellow-key-background);
+      box-shadow: 0 0.4rem 0 var(--dark-grayish-orange-key-shadow);
+
+      &:active {
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+        transform: translateY(5px);
+      }
+    }
+
+    &--secondary  {
+      color: white;
+      background: var(--dark-moderate-cyan-key-background);
+      box-shadow: 0 0.4rem 0 var(--very-dark-cyan-key-shadow);
+
+      &:active {
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+        transform: translateY(5px);
+      }
+    }
+
+    &--accent {
+      color: white;
+      background: var(--orange-key-background);
+      box-shadow: 0 0.4rem 0 var(--dark-orange-key-shadow);
+
+      &:active {
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+        transform: translateY(5px);
+      }
+    }
+  }
+}

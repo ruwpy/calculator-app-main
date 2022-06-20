@@ -1,0 +1,66 @@
+.theme3 {
+
+  .main {
+    background: var(--very-dark-violet-main-background);
+  }
+
+  .calc {
+    color: var(--light-yellow);
+
+    &__screen {
+      background: var(--very-dark-violet-toggle-background);
+    }
+
+    &__keys {
+      background: var(--very-dark-violet-toggle-background);
+    }
+  }
+
+  .switcher {
+
+    &__container {
+      background: var(--very-dark-violet-toggle-background);
+    }
+
+    &__round {
+      background: var(--pure-cyan-key-background);
+      transform: translateX(47px);
+    }
+  }
+
+  .button {
+
+    &--primary {
+      color: var(--light-yellow);
+      background: var(--very-dark-violet-key-background);
+      box-shadow: 0 0.4rem 0 var(--dark-magenta-key-shadow);
+
+      &:active {
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+        transform: translateY(5px);
+      }
+    }
+
+    &--secondary  {
+      color: white;
+      background: var(--dark-violet-key-background);
+      box-shadow: 0 0.4rem 0 var(--vivid-magenta-key-shadow);
+
+      &:active {
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+        transform: translateY(5px);
+      }
+    }
+
+    &--accent {
+      color: var(--very-dark-blue);
+      background: var(--pure-cyan-key-background);
+      box-shadow: 0 0.4rem 0 var(--soft-cyan-key-shadow);
+
+      &:active {
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+        transform: translateY(5px);
+      }
+    }
+  }
+}
