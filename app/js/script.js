@@ -32,7 +32,7 @@ keys.addEventListener('click', (e) => {
   const previousKeyType = calculator.dataset.previousKeyType
 
   if (type === 'num') {
-    if (screenValue === '0') {
+    if (screenValue === '0' && type !== 'dot') {
       screen.textContent = keyValue
     } else if (previousKeyType === 'operator') {
       screen.textContent = keyValue
@@ -44,6 +44,18 @@ keys.addEventListener('click', (e) => {
   if (type === 'operator') {
     calculator.dataset.firstValue = screenValue
     calculator.dataset.operator = key.dataset.key
+  }
+
+  if (type === 'delete' && screenValue !== '0') {
+    screen.textContent = screenValue.substring(0, screenValue.length -1)
+  }
+
+  if (type === 'delete' && screenValue.length === 1) {
+    screen.textContent = '0'
+  }
+
+  if (type === 'reset') {
+    screen.textContent = '0'
   }
 
   if (type === 'equal') {
