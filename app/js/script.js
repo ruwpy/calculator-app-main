@@ -107,5 +107,3 @@ function calculate(firstValue, operator, secondValue) {
     return result.toFixed(2)
   }
 }
-
-calculate(2, 'plus', 0.2)
