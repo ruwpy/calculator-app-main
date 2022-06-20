@@ -32,13 +32,17 @@ keys.addEventListener('click', (e) => {
   const previousKeyType = calculator.dataset.previousKeyType
 
   if (type === 'num') {
-    if (screenValue === '0' && type !== 'dot') {
+    if (screenValue === '0' || screenValue === 'NaN') {
       screen.textContent = keyValue
     } else if (previousKeyType === 'operator') {
       screen.textContent = keyValue
     } else {
       screen.textContent = screenValue + keyValue
     }
+  }
+
+  if (type === 'dot') {
+    screen.textContent = '0' + keyValue
   }
 
   if (type === 'operator') {
@@ -54,24 +58,34 @@ keys.addEventListener('click', (e) => {
     screen.textContent = '0'
   }
 
-  if (type === 'reset') {
-    screen.textContent = '0'
+  if (previousKeyType === 'equal') {
+    screen.textContent = keyValue
   }
 
+  
   if (type === 'equal') {
-    const firstValue = parseInt(calculator.dataset.firstValue)
-    const operator = calculator.dataset.operator
-    const secondValue = parseInt(screenValue)
+    if (calculator.dataset.firstValue % 1 === 0) {}
+    const firstValue = parseFloat(calculator.dataset.firstValue)
+    const secondValue = parseFloat(screenValue)
 
+    const operator = calculator.dataset.operator
+    
     screen.textContent = calculate(firstValue, operator, secondValue)
+  }
+
+  if (type === 'reset') {
+    screen.textContent = '0'
+
+    calculator.dataset.firstValue = '0'
+    calculator.dataset.operator = ''
   }
 
   calculator.dataset.previousKeyType = type
 })
 
 function calculate(firstValue, operator, secondValue) {
-  firstValue = parseInt(firstValue)
-  secondValue = parseInt(secondValue)
+  firstValue = parseFloat(firstValue)
+  secondValue = parseFloat(secondValue)
 
   let result = ''
 
@@ -84,5 +98,12 @@ function calculate(firstValue, operator, secondValue) {
   } else {
     result = firstValue * secondValue
   }
-  return result
+  
+  if (result % 1 === 0) {
+    return result
+  } else {
+    return result.toFixed(2)
+  }
 }
+
+calculate(2, 'plus', 0.2)
